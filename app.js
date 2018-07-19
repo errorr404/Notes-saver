@@ -3,8 +3,18 @@ console.log('Starting App');
 const fs = require('fs'); // import the file system module.
 const os = require('os'); // import the os module to grab username.
 const notes = require('./notes.js') // import the file from same directory
-const val = notes.addNum(5,7);
-console.log(val);
+const _ = require('lodash');
+
+console.log(_.isString(true)); // isString method return the true or false value.
+console.log(_.isString('true'));
+
+var filteredArray = _.uniq(['Dixit',1,2,'Dixit',2,3,5,1,5]);
+console.log(filteredArray);
+
+
+
+// const val = notes.addNum(5,7);
+// console.log(val);
 
 
 
