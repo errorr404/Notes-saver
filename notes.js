@@ -9,7 +9,7 @@ var getAll =() =>{
   console.log('getting all the content');
 };
 
-var readNote = (title) => {
+var getNote = (title) => {
   console.log('title to read',title);
 };
 
@@ -19,6 +19,6 @@ var removeNote = (title) => {
 module.exports = {
   addNote,
   getAll,
-  readNote,
+  getNote,
   removeNote
 };
