@@ -16,7 +16,20 @@ console.log('yargs',argv);
 if(command==='add')
 {
   console.log('adding the notes');
-  notes.addNote(argv.title,argv.body);
+   var note = notes.addNote(argv.title,argv.body);
+  console.log(note);
+  if(typeof note !=="undefined" && note.title===argv.title)
+  {
+    console.log('notes successfully saved');
+    console.log('----');
+    console.log(`Title: ${note.title}`);
+    console.log(`body: ${note.body}`);
+  }
+  else if(typeof note =="undefined")
+  {
+    console.log('duplicate note found');
+  }
+
 }
 else if(command==='list')
 {
