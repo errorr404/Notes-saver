@@ -42,6 +42,8 @@ else if(command==='list')
 } else if(command==='remove')
 {
   console.log('removing the notes');
-  nodes.removeNote(argv.title)
+  var remove = notes.removeNote(argv.title)
+  if(remove) console.log('node not found');
+  else console.log('node removed');
 }
 else console.log('command not recognized');

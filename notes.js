@@ -51,7 +51,17 @@ var getNote = (title) => {
 };
 
 var removeNote = (title) => {
-  console.log('title to remove',title);
+  //console.log('title to remove',title);
+  // fetch notes
+  var notes =fetchNotes();
+  // remove note by filter array
+  var filterdArray = notes.filter((note)=>notes.title !==title) // here we make an array to that title which dosen't contain the remove title.
+  // save the filtered ayyay
+  saveNotes(filterdArray);
+  if(notes.length===filterdArray.length)
+  {
+    return true;
+  } else return false;
 };
 module.exports = {
   addNote,
