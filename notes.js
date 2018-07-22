@@ -43,11 +43,23 @@ var addNote = (title,body) =>{
 };
 
 var getAll =() =>{
-  console.log('getting all the content');
+  //console.log('getting all the content');
+  var notes = fetchNotes();
+  notes.map((note)=>{
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+    console.log('-------------');
+  });
 };
 
 var getNote = (title) => {
-  console.log('title to read',title);
+  //console.log('title to read',title);
+  var notes = fetchNotes();
+  //console.log(notes);
+  var foundNote = notes.filter((note)=>note.title===title);
+  //console.log(foundNote);
+  return foundNote[0];
+
 };
 
 var removeNote = (title) => {
@@ -63,9 +75,16 @@ var removeNote = (title) => {
     return true;
   } else return false;
 };
+
+var logNote = (note)=>{
+  console.log('----');
+  console.log(`Title: ${note.title}`);
+  console.log(`body: ${note.body}`);
+};
 module.exports = {
   addNote,
   getAll,
   getNote,
-  removeNote
+  removeNote,
+  logNote
 };

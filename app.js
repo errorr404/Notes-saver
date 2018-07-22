@@ -21,9 +21,7 @@ if(command==='add')
   if(typeof note !=="undefined" && note.title===argv.title)
   {
     console.log('notes successfully saved');
-    console.log('----');
-    console.log(`Title: ${note.title}`);
-    console.log(`body: ${note.body}`);
+    notes.logNote(note);
   }
   else if(typeof note =="undefined")
   {
@@ -34,12 +32,26 @@ if(command==='add')
 else if(command==='list')
 {
   console.log('listing all the notes');
-  notes.getAll();
-} else if(command==='read')
+ notes.getAll();
+
+}
+else if(command==='read')
 {
-  console.log('fetching all the notes');
-  notes.getNote(argv.title);
-} else if(command==='remove')
+//  console.log('fetching all the notes');
+  var note = notes.getNote(argv.title);
+//  console.log(note);
+  if(note)
+  {
+    console.log('note found');
+    notes.logNote(note);
+  }
+  else
+  {
+    console.log('note not found');
+  }
+
+}
+else if(command==='remove')
 {
   console.log('removing the notes');
   var remove = notes.removeNote(argv.title)
