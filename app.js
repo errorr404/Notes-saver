@@ -11,7 +11,7 @@ const argv = yargs.argv;
 //var command = process.argv[2]; // here to take command we write in command prompt node app.js command
 var command = argv._[0];
 console.log('command:',command);
-console.log('process',process.argv);
+//console.log('process',process.argv);
 console.log('yargs',argv);
 if(command==='add')
 {
