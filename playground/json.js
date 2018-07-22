@@ -20,7 +20,7 @@ const fs = require('fs'); // import the fileSystem module
 // here we make an object
 var originalNote = {
   title: 'some title',
-  body: 'some body'
+  body: 'some body of the webapp'
 };
 
 // originalNoteString

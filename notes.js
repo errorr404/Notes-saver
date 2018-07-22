@@ -67,13 +67,14 @@ var removeNote = (title) => {
   // fetch notes
   var notes =fetchNotes();
   // remove note by filter array
-  var filterdArray = notes.filter((note)=>notes.title !==title) // here we make an array to that title which dosen't contain the remove title.
+  var filterdArray = notes.filter((note)=>note.title !== title); // here we make an array to that title which dosen't contain the remove title.
   // save the filtered ayyay
+  //console.log(filterdArray);
   saveNotes(filterdArray);
   if(notes.length===filterdArray.length)
   {
-    return true;
-  } else return false;
+    return false;
+  } else return true;
 };
 
 var logNote = (note)=>{

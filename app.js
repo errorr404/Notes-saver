@@ -2,11 +2,36 @@ console.log('Starting App');
 // here require is used for importing the built-in module from node.
 const fs = require('fs'); // import the file system module.
 const _ = require('lodash');
+
 const yargs = require('yargs');
 
 const notes = require('./notes.js') // import the file from same directory
 
-const argv = yargs.argv;
+const titleoptions = {
+  describe: 'Title of note',
+  demand: true,
+  alias: 't'
+};
+var bodyoptions = {
+  describe: 'body of note',
+  demand: true,
+  alias: 'b'
+};
+// here we add some methods in the yargs -- for more go to the npm page of yarg and find methods and then commands
+const argv = yargs
+              .command('add','Add a new Note',{
+              title:titleoptions,
+                body:bodyoptions
+              })
+              .command('list','list all notes')
+              .command('read','read a note',{
+                title:titleoptions
+              })
+              .command('remove','remove one node',{
+                title:titleoptions
+              })
+              .help()
+              .argv;
 
 //var command = process.argv[2]; // here to take command we write in command prompt node app.js command
 var command = argv._[0];
@@ -54,8 +79,9 @@ else if(command==='read')
 else if(command==='remove')
 {
   console.log('removing the notes');
+  console.log(argv.title);
   var remove = notes.removeNote(argv.title)
-  if(remove) console.log('node not found');
+  if(remove===false) console.log('node not found');
   else console.log('node removed');
 }
 else console.log('command not recognized');
